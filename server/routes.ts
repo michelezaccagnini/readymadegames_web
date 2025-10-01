@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { emailService } from "./emailService";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form endpoint
@@ -23,11 +24,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
 
-      // In a real application, you would:
-      // 1. Save to database
-      // 2. Send notification email
-      // 3. Add to CRM system
-      
+      // Log the submission
       console.log('Contact form submission:', {
         name,
         email,
@@ -38,12 +35,39 @@ export async function registerRoutes(app: Express): Promise<Server> {
         timestamp: new Date().toISOString()
       });
 
-      // Simulate email sending
-      // In production, use a service like SendGrid, Mailgun, or Nodemailer
+      // Send email notification to you
+      const emailSent = await emailService.sendContactFormEmail({
+        name,
+        email,
+        company,
+        inquiryType,
+        subject,
+        message
+      });
+
+      // Send auto-reply to the person who submitted the form
+      const autoReplySent = await emailService.sendAutoReply({
+        name,
+        email,
+        company,
+        inquiryType,
+        subject,
+        message
+      });
+
+      if (!emailSent) {
+        console.warn('Failed to send notification email');
+      }
+
+      if (!autoReplySent) {
+        console.warn('Failed to send auto-reply email');
+      }
       
       res.status(200).json({ 
         message: "Contact form submitted successfully",
-        id: Date.now().toString() // Simple ID generation
+        id: Date.now().toString(),
+        emailSent,
+        autoReplySent
       });
 
     } catch (error) {
