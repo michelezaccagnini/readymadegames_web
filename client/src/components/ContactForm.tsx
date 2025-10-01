@@ -268,7 +268,7 @@ export default function ContactForm() {
                     <Mail className="h-5 w-5 text-purple-400" />
                     <div>
                       <p className="text-white font-medium">Email</p>
-                      <p className="text-gray-300">hello@soundsphere.games</p>
+                      <p className="text-gray-300">info@readymade.games</p>
                     </div>
                   </div>
                   
