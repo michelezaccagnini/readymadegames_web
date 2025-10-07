@@ -1,4 +1,4 @@
-import CSS3InteractiveSpheres from "./CSS3InteractiveSpheres";
+import VideoBackground from "./VideoBackground";
 import { Button } from "./ui/button";
 import { useNavigation } from "../lib/stores/useNavigation";
 import { Play, Download, Music } from "lucide-react";
@@ -8,10 +8,10 @@ export default function HomePage() {
 
   return (
     <div className="relative h-screen overflow-hidden">
-      {/* Interactive CSS3 Spheres Background */}
-      <div className="absolute inset-0">
-        <CSS3InteractiveSpheres />
-      </div>
+      {/* Video Background */}
+      <VideoBackground 
+        videoPath="/cracked-nuts-background.mp4"
+      />
 
       {/* Content Overlay */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
@@ -25,7 +25,7 @@ export default function HomePage() {
           
           <p className="text-xl md:text-2xl text-gray-200 mb-8 drop-shadow-lg">
             Immersive music games that blend rhythm, movement, and creativity. 
-            Click the spheres above to start making music!
+            Experience the magic of interactive music!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -62,7 +62,7 @@ export default function HomePage() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <div className="text-white/60 text-sm">Click spheres to make music</div>
+          <div className="text-white/60 text-sm">Scroll to explore</div>
           <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent mx-auto mt-2"></div>
         </div>
       </div>

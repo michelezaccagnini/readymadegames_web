@@ -15,7 +15,7 @@ export class EmailService {
 
   constructor() {
     // Create transporter using Gmail SMTP
-    this.transporter = nodemailer.createTransporter({
+    this.transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
         user: emailConfig.user,
