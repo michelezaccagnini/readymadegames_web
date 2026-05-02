@@ -1,0 +1,6 @@
+# Add this to your .env.local file for local development:
+VITE_VIDEO_URL=https://res.cloudinary.com/YOUR-CLOUD-NAME/video/upload/YOUR-VIDEO-PATH.mp4
+
+# Add this to Vercel environment variables for production:
+VITE_VIDEO_URL=https://res.cloudinary.com/YOUR-CLOUD-NAME/video/upload/YOUR-VIDEO-PATH.mp4
+

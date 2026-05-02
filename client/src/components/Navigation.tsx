@@ -1,16 +1,19 @@
 import { useState } from 'react';
+import { useLocation } from 'wouter';
 import { Button } from './ui/button';
 import { useNavigation } from '../lib/stores/useNavigation';
-import { Menu, X, Music, Gamepad2, Palette, User, Mail, Play } from 'lucide-react';
+import { Menu, X, Music, Gamepad2, Palette, User, Mail } from 'lucide-react';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const { currentSection, setCurrentSection } = useNavigation();
+  const [location, setLocation] = useLocation();
+
+  const isOnRoot = location === '/';
 
   const navItems = [
     { id: 'home', label: 'Home', icon: Music },
     { id: 'games', label: 'Games', icon: Gamepad2 },
-    { id: 'play', label: 'Play Now', icon: Play },
     { id: 'gallery', label: 'Gallery', icon: Palette },
     { id: 'about', label: 'About', icon: User },
     { id: 'contact', label: 'Contact', icon: Mail },
@@ -18,18 +21,35 @@ export default function Navigation() {
 
   const handleNavClick = (sectionId: string) => {
     setCurrentSection(sectionId);
+    if (!isOnRoot) {
+      setLocation('/');
+    }
     setIsOpen(false);
   };
+
+  const handleLogoClick = () => {
+    setCurrentSection('home');
+    if (!isOnRoot) {
+      setLocation('/');
+    }
+  };
+
+  const isActive = (id: string) => isOnRoot && currentSection === id;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-black/20 backdrop-blur-md border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <button
+            type="button"
+            onClick={handleLogoClick}
+            className="flex items-center space-x-2 cursor-pointer"
+            aria-label="Readymade Games — home"
+          >
             <Music className="h-8 w-8 text-purple-400" />
-            <span className="text-xl font-bold text-white">SoundSphere Games</span>
-          </div>
+            <span className="text-xl font-bold text-white">Readymade Games</span>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:block">
@@ -39,7 +59,7 @@ export default function Navigation() {
                 return (
                   <Button
                     key={item.id}
-                    variant={currentSection === item.id ? "default" : "ghost"}
+                    variant={isActive(item.id) ? "default" : "ghost"}
                     onClick={() => handleNavClick(item.id)}
                     className="text-white hover:text-purple-300 flex items-center space-x-2"
                   >
@@ -73,7 +93,7 @@ export default function Navigation() {
               return (
                 <Button
                   key={item.id}
-                  variant={currentSection === item.id ? "default" : "ghost"}
+                  variant={isActive(item.id) ? "default" : "ghost"}
                   onClick={() => handleNavClick(item.id)}
                   className="w-full justify-start text-white hover:text-purple-300 flex items-center space-x-2"
                 >
