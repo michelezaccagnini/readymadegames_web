@@ -20,10 +20,10 @@ const ITCH_URL = "https://readymadegames.itch.io/synthaesthesia";
 const CONTACT_EMAIL = "info@readymade.games";
 const PRESS_KIT_ZIP = "/synthaesthesia/press-kit.zip";
 const SCREENSHOTS = [
-  "/synthaesthesia/screenshot-1.jpg",
-  "/synthaesthesia/screenshot-2.jpg",
-  "/synthaesthesia/screenshot-3.jpg",
-  "/synthaesthesia/screenshot-4.jpg",
+  "/synthaesthesia/fingerSS.jpeg",
+  "/synthaesthesia/menuSS.jpeg",
+  "/synthaesthesia/patternSS.jpeg",
+  "/synthaesthesia/roomSS.jpeg",
 ];
 const PAGE_URL = "https://readymade.games/synthaesthesia/press";
 const OG_IMAGE = "https://readymade.games/synthaesthesia/og-image.jpg";
