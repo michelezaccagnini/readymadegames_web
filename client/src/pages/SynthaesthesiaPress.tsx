@@ -13,12 +13,17 @@ import {
   Copy,
   Check,
   ExternalLink,
+  FileText,
 } from "lucide-react";
 
 const APP_STORE_URL = "https://apps.apple.com/app/id6763379132";
 const ITCH_URL = "https://readymadegames.itch.io/synthaesthesia";
 const CONTACT_EMAIL = "info@readymade.games";
 const PRESS_KIT_ZIP = "/synthaesthesia/press-kit.zip";
+const ONE_PAGER_PAGE = "/synthaesthesia/press/one-pager";
+const ONE_PAGER_MD = "/synthaesthesia/PRESS_ONE_PAGER.md";
+const GITHUB_ONE_PAGER_SOURCE =
+  "https://github.com/michelezaccagnini/Synthaesthesia/blob/ios-build/press/PRESS_ONE_PAGER.md";
 const SCREENSHOTS = [
   "/synthaesthesia/fingerSS.jpeg",
   "/synthaesthesia/menuSS.jpeg",
@@ -157,10 +162,32 @@ export default function SynthaesthesiaPress() {
                   Download press kit
                 </h2>
                 <p className="text-gray-400 text-sm">
-                  Logos, 4 screenshots, hero video, one-pager PDF, fact sheet.
+                  Full zip when available; meanwhile use the one-pager (print to PDF),
+                  Markdown download, and assets below.{" "}
+                  <a
+                    href={GITHUB_ONE_PAGER_SOURCE}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-purple-300 hover:text-white underline underline-offset-2"
+                  >
+                    Canonical copy on GitHub
+                  </a>
+                  .
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-3">
+                <Button asChild variant="secondary" className="bg-white/10 text-white hover:bg-white/20">
+                  <Link href={ONE_PAGER_PAGE}>
+                    <FileText className="mr-2 h-4 w-4" />
+                    One-pager
+                  </Link>
+                </Button>
+                <Button asChild variant="outline" className="border-white/30 text-white hover:bg-white/10">
+                  <a href={ONE_PAGER_MD} download>
+                    <Download className="mr-2 h-4 w-4" />
+                    PRESS_ONE_PAGER.md
+                  </a>
+                </Button>
                 <Button
                   asChild
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white"

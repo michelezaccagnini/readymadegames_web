@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 import SynthaesthesiaLanding from "./pages/SynthaesthesiaLanding";
 import SynthaesthesiaPress from "./pages/SynthaesthesiaPress";
+import SynthaesthesiaOnePager from "./pages/SynthaesthesiaOnePager";
 import StudioPress from "./pages/StudioPress";
 import NotFound from "./pages/not-found";
 import { useNavigation } from "./lib/stores/useNavigation";
@@ -56,6 +57,7 @@ function App() {
             <main className="flex-1">
               <Switch>
                 <Route path="/synthaesthesia" component={SynthaesthesiaLanding} />
+                <Route path="/synthaesthesia/press/one-pager" component={SynthaesthesiaOnePager} />
                 <Route path="/synthaesthesia/press" component={SynthaesthesiaPress} />
                 <Route path="/press" component={StudioPress} />
                 <Route path="/" component={StudioApp} />
