@@ -59,10 +59,10 @@ export default function SynthaesthesiaLanding() {
   return (
     <>
       <Helmet>
-        <title>Synthaesthesia — A Spatial Audio-Visual Instrument</title>
+        <title>Synesthesia Synth — A Spatial Audio-Visual Instrument</title>
         <meta
           name="description"
-          content="Synthaesthesia is a spatial audio-visual instrument where every gesture is both sound and image. Move 3D capsules to sculpt timbre, rhythm and light. iOS + Android."
+          content="Synesthesia Synth is a spatial audio-visual instrument where every gesture is both sound and image. Move 3D capsules to sculpt timbre, rhythm and light. iOS + Android."
         />
         <link rel="canonical" href={PAGE_URL} />
 
@@ -70,7 +70,7 @@ export default function SynthaesthesiaLanding() {
         <meta property="og:url" content={PAGE_URL} />
         <meta
           property="og:title"
-          content="Synthaesthesia — A Spatial Audio-Visual Instrument"
+          content="Synesthesia Synth — A Spatial Audio-Visual Instrument"
         />
         <meta
           property="og:description"
@@ -81,7 +81,7 @@ export default function SynthaesthesiaLanding() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Synthaesthesia — A Spatial Audio-Visual Instrument"
+          content="Synesthesia Synth — A Spatial Audio-Visual Instrument"
         />
         <meta
           name="twitter:description"
@@ -99,7 +99,7 @@ export default function SynthaesthesiaLanding() {
                 Out now on iOS · Android beta on itch.io
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-5">
-                Synthaesthesia
+                Synesthesia Synth
               </h1>
               <p className="text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 font-medium mb-6">
                 A spatial audio-visual instrument
@@ -128,7 +128,7 @@ export default function SynthaesthesiaLanding() {
             <div className="w-full rounded-2xl overflow-hidden border border-white/10 bg-black shadow-2xl">
               <YouTubeEmbed
                 videoId={SYNTHAESTHESIA_HERO_YOUTUBE_ID}
-                title="Synthaesthesia — hero trailer"
+                title="Synesthesia Synth — hero trailer"
                 ambient
               />
             </div>
@@ -167,7 +167,7 @@ export default function SynthaesthesiaLanding() {
                 >
                   <img
                     src={src}
-                    alt={`Synthaesthesia screenshot ${i + 1}`}
+                    alt={`Synesthesia Synth screenshot ${i + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -224,7 +224,7 @@ export default function SynthaesthesiaLanding() {
           <section className="mb-16">
             <div className="rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-400/30 p-10 text-center">
               <h2 className="text-3xl font-bold text-white mb-3">
-                Get Synthaesthesia
+                Get Synesthesia Synth
               </h2>
               <p className="text-gray-300 mb-8 max-w-xl mx-auto">
                 Free on the App Store. Android beta available on itch.io.

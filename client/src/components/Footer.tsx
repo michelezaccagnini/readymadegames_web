@@ -18,7 +18,7 @@ export default function Footer() {
             href="/synthaesthesia/press"
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >
-            Synthaesthesia Press Kit
+            Synesthesia Synth Press Kit
           </Link>
           <a
             href={`mailto:${CONTACT_EMAIL}`}

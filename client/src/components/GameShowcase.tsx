@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 const games = [
   {
     id: "synthaesthesia",
-    title: "Synthaesthesia",
+    title: "Synesthesia Synth",
     tagline: "A Spatial Audio-Visual Instrument",
     description:
       "Three 3D capsules float in space — move them, rotate them, and watch them contract to generate sound. Every position and rotation shapes the timbre; contraction patterns are sculpted with sliders; delay effects spawn synchronized particles. Swap between sound patches to transform the entire sonic character. Not quite a game, not quite a synth — a new kind of spatial instrument.",

@@ -28,10 +28,10 @@ export default function HomePage() {
             Experience the magic of interactive music!
           </p>
 
-          {/* Featured app: Synthaesthesia */}
+          {/* Featured app: Synesthesia Synth */}
           <div className="flex flex-col items-center gap-4 mb-8">
             <p className="text-sm uppercase tracking-widest text-purple-200/80">
-              Out now — Synthaesthesia
+              Out now — Synesthesia Synth
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <AppStoreBadge href={APP_STORE_URL} />

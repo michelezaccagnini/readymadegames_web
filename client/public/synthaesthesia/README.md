@@ -1,4 +1,4 @@
-# Synthaesthesia public assets
+# Synesthesia Synth public assets
 
 Drop the following files into this directory. The pages
 `/synthaesthesia` and `/synthaesthesia/press` reference them by these exact

@@ -61,10 +61,10 @@ const features = [
 ];
 
 const shareOneLine =
-  "Synthaesthesia by Readymade Games — a spatial audio-visual instrument where every gesture is both sound and image. Free on the App Store. https://readymade.games/synthaesthesia";
+  "Synesthesia Synth by Readymade Games — a spatial audio-visual instrument where every gesture is both sound and image. Free on the App Store. https://readymade.games/synthaesthesia";
 
 const shareParagraph =
-  "Synthaesthesia is a new kind of spatial instrument from Readymade Games. Three 3D capsules float in space — moving and rotating them shapes timbre, sliders sculpt rhythmic contraction, and delay effects spawn synchronised particle bursts. Not quite a game, not quite a synth. Free on the App Store, with an Android beta on itch.io. https://readymade.games/synthaesthesia";
+  "Synesthesia Synth is a new kind of spatial instrument from Readymade Games. Three 3D capsules float in space — moving and rotating them shapes timbre, sliders sculpt rhythmic contraction, and delay effects spawn synchronised particle bursts. Not quite a game, not quite a synth. Free on the App Store, with an Android beta on itch.io. https://readymade.games/synthaesthesia";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -105,24 +105,24 @@ export default function SynthaesthesiaPress() {
   return (
     <>
       <Helmet>
-        <title>Synthaesthesia — Press Kit</title>
+        <title>Synesthesia Synth — Press Kit</title>
         <meta
           name="description"
-          content="Press kit for Synthaesthesia by Readymade Games — fact sheet, screenshots, hero video, downloadable press kit, and reviewer build access."
+          content="Press kit for Synesthesia Synth by Readymade Games — fact sheet, screenshots, hero video, downloadable press kit, and reviewer build access."
         />
         <link rel="canonical" href={PAGE_URL} />
 
         <meta property="og:type" content="website" />
         <meta property="og:url" content={PAGE_URL} />
-        <meta property="og:title" content="Synthaesthesia — Press Kit" />
+        <meta property="og:title" content="Synesthesia Synth — Press Kit" />
         <meta
           property="og:description"
-          content="Fact sheet, screenshots, hero video, and downloadable press kit for Synthaesthesia by Readymade Games."
+          content="Fact sheet, screenshots, hero video, and downloadable press kit for Synesthesia Synth by Readymade Games."
         />
         <meta property="og:image" content={OG_IMAGE} />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Synthaesthesia — Press Kit" />
+        <meta name="twitter:title" content="Synesthesia Synth — Press Kit" />
         <meta
           name="twitter:description"
           content="Fact sheet, screenshots, hero video, and downloadable press kit."
@@ -138,7 +138,7 @@ export default function SynthaesthesiaPress() {
             className="inline-flex items-center gap-2 text-purple-300 hover:text-white mb-8 text-sm"
           >
             <ArrowLeft className="h-4 w-4" />
-            Back to Synthaesthesia
+            Back to Synesthesia Synth
           </Link>
 
           {/* Header */}
@@ -147,7 +147,7 @@ export default function SynthaesthesiaPress() {
               Press kit
             </Badge>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-              Synthaesthesia
+              Synesthesia Synth
             </h1>
             <p className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-pink-300 font-medium">
               A spatial audio-visual instrument by Readymade Games
@@ -208,7 +208,7 @@ export default function SynthaesthesiaPress() {
               Description
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Synthaesthesia is a new kind of spatial instrument. Three 3D
+              Synesthesia Synth is a new kind of spatial instrument. Three 3D
               capsules float in space — move them, rotate them, and watch them
               contract to generate sound. Every position and rotation shapes
               the timbre; contraction patterns are sculpted with sliders;
@@ -216,7 +216,7 @@ export default function SynthaesthesiaPress() {
               patches to transform the entire sonic character.
             </p>
             <p className="text-gray-300 leading-relaxed">
-              Not quite a game, not quite a synth — Synthaesthesia is built on
+              Not quite a game, not quite a synth — Synesthesia Synth is built on
               the idea that every gesture should be both sound and image at
               once.
             </p>
@@ -264,7 +264,7 @@ export default function SynthaesthesiaPress() {
             <div className="rounded-xl overflow-hidden border border-white/10 bg-black">
               <YouTubeEmbed
                 videoId={SYNTHAESTHESIA_HERO_YOUTUBE_ID}
-                title="Synthaesthesia — hero trailer"
+                title="Synesthesia Synth — hero trailer"
               />
             </div>
           </section>
@@ -285,7 +285,7 @@ export default function SynthaesthesiaPress() {
                 >
                   <img
                     src={src}
-                    alt={`Synthaesthesia screenshot ${i + 1}`}
+                    alt={`Synesthesia Synth screenshot ${i + 1}`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />

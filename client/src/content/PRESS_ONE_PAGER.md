@@ -1,4 +1,4 @@
-# Synthaesthesia — Press One-Pager
+# Synesthesia Synth — Press One-Pager
 
 **A 3D audiovisual instrument for iOS where every gesture is both sound and image.**
 
@@ -13,7 +13,7 @@ position is pan, height is pitch, depth is reverb.
 
 ## What it is (in one paragraph)
 
-Synthaesthesia is a touch-first instrument with three independent voices, each a living capsule shape suspended in 3D. Move a capsule and you're not just panning audio — you're sculpting space, pitch, and reverb at once. Adjust a knob and you reshape both timbre and visual at the same instant. There's no "interface vs. instrument": every visible thing is sound, every sound is something you can see and move.
+Synesthesia Synth is a touch-first instrument with three independent voices, each a living capsule shape suspended in 3D. Move a capsule and you're not just panning audio — you're sculpting space, pitch, and reverb at once. Adjust a knob and you reshape both timbre and visual at the same instant. There's no "interface vs. instrument": every visible thing is sound, every sound is something you can see and move.
 
 ---
 
@@ -37,7 +37,7 @@ Synthaesthesia is a touch-first instrument with three independent voices, each a
 
 ## About the developer
 
-**Michele Zaccagnini** — composer, researcher, and developer working at the intersection of music and interactive systems. Synthaesthesia grew out of a long-running interest in mapping musical gestures to visible motion and treating the screen as a performance space rather than a control surface.
+**Michele Zaccagnini** — composer, researcher, and developer working at the intersection of music and interactive systems. Synesthesia Synth grew out of a long-running interest in mapping musical gestures to visible motion and treating the screen as a performance space rather than a control surface.
 
 Web: https://www.readymade.games/  
 Press contact: info@readymade.games
@@ -48,7 +48,7 @@ Press contact: info@readymade.games
 
 | | |
 |---|---|
-| Title | Synthaesthesia |
+| Title | Synesthesia Synth |
 | Developer | Michele Zaccagnini / Readymade Games |
 | Platforms | iOS (App Store) · Android (itch.io beta) |
 | Price | Free |
@@ -58,4 +58,4 @@ Press contact: info@readymade.games
 
 ---
 
-*Synthaesthesia — where every gesture is both sound and image.*
+*Synesthesia Synth — where every gesture is both sound and image.*

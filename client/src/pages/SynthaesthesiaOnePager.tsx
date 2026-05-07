@@ -14,10 +14,10 @@ export default function SynthaesthesiaOnePager() {
   return (
     <>
       <Helmet>
-        <title>Synthaesthesia — Press one-pager</title>
+        <title>Synesthesia Synth — Press one-pager</title>
         <meta
           name="description"
-          content="Press one-pager for Synthaesthesia: facts, assets, and story. Printable; save as PDF from your browser."
+          content="Press one-pager for Synesthesia Synth: facts, assets, and story. Printable; save as PDF from your browser."
         />
         <link rel="canonical" href="https://readymade.games/synthaesthesia/press/one-pager" />
       </Helmet>

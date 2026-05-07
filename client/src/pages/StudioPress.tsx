@@ -9,7 +9,7 @@ const OG_IMAGE = "https://readymade.games/og-image.jpg";
 
 const games = [
   {
-    title: "Synthaesthesia",
+    title: "Synesthesia Synth",
     tagline: "A spatial audio-visual instrument",
     pressUrl: "/synthaesthesia/press",
     landingUrl: "/synthaesthesia",
