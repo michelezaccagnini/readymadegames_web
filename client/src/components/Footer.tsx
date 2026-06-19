@@ -15,6 +15,12 @@ export default function Footer() {
             Press
           </Link>
           <Link
+            href="/synthaesthesia/manual"
+            className="text-purple-400 hover:text-purple-300 transition-colors"
+          >
+            Synesthesia Synth Manual
+          </Link>
+          <Link
             href="/synthaesthesia/press"
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >

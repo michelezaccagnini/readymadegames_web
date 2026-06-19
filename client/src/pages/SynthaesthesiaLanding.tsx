@@ -3,8 +3,14 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AppStoreBadge from "@/components/AppStoreBadge";
+import GooglePlayBadge from "@/components/GooglePlayBadge";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
-import { SYNTHAESTHESIA_HERO_YOUTUBE_ID } from "@/lib/synthaesthesiaMedia";
+import {
+  SYNTHAESTHESIA_HERO_YOUTUBE_ID,
+  SYNTHAESTHESIA_DEMO_VIDEOS,
+  SYNTHAESTHESIA_LINKS,
+  SYNTHAESTHESIA_MANUAL_SECTIONS,
+} from "@/lib/synthaesthesiaMedia";
 import {
   Download,
   Mail,
@@ -14,16 +20,25 @@ import {
   Sparkles,
   Youtube,
   Github,
+  BookOpen,
+  ExternalLink,
 } from "lucide-react";
 
-const APP_STORE_URL = "https://apps.apple.com/app/id6763379132";
-const ITCH_URL = "https://readymadegames.itch.io/synthaesthesia";
-const CONTACT_EMAIL = "info@readymade.games";
+const {
+  appStore: APP_STORE_URL,
+  googlePlay: GOOGLE_PLAY_URL,
+  itch: ITCH_URL,
+  manual: MANUAL_URL,
+  manualPresets: MANUAL_PRESETS_URL,
+  manualGithub: MANUAL_GITHUB_URL,
+  contactEmail: CONTACT_EMAIL,
+} = SYNTHAESTHESIA_LINKS;
+
 const SCREENSHOTS = [
-  "/synthaesthesia/fingerSS.jpeg",
-  "/synthaesthesia/menuSS.jpeg",
-  "/synthaesthesia/patternSS.jpeg",
-  "/synthaesthesia/roomSS.jpeg",
+  { src: "/synthaesthesia/fingerSS.jpeg", caption: "Touch gestures shape every voice." },
+  { src: "/synthaesthesia/menuSS.jpeg", caption: "Patch menu — swap entire sonic worlds." },
+  { src: "/synthaesthesia/patternSS.jpeg", caption: "Pattern generator: XY pad + waveform slider." },
+  { src: "/synthaesthesia/roomSS.jpeg", caption: "The room is the mixer — position is pan, height is pitch, depth is reverb." },
 ];
 const OG_IMAGE = "https://readymade.games/synthaesthesia/og-image.jpg";
 const PAGE_URL = "https://readymade.games/synthaesthesia";
@@ -47,7 +62,7 @@ const features = [
 ];
 
 const mappings = [
-  { input: "Capsule position (X / Y / Z)", output: "Pitch and timbre center" },
+  { input: "Capsule position (X / Y / Z)", output: "Pan, pitch / brightness, distance + reverb" },
   { input: "Capsule rotation", output: "Spectral character / harmonics" },
   { input: "Contraction rate", output: "Rhythmic pulse of each voice" },
   { input: "Sliders", output: "Envelope and contraction shape" },
@@ -62,7 +77,7 @@ export default function SynthaesthesiaLanding() {
         <title>Synesthesia Synth — A Spatial Audio-Visual Instrument</title>
         <meta
           name="description"
-          content="Synesthesia Synth is a spatial audio-visual instrument where every gesture is both sound and image. Move 3D capsules to sculpt timbre, rhythm and light. iOS + Android."
+          content="Synesthesia Synth is a spatial audio-visual instrument where every gesture is both sound and image. Move 3D capsules to sculpt timbre, rhythm and light. Free on iOS and Android."
         />
         <link rel="canonical" href={PAGE_URL} />
 
@@ -74,7 +89,7 @@ export default function SynthaesthesiaLanding() {
         />
         <meta
           property="og:description"
-          content="Move 3D capsules to sculpt timbre, rhythm and light. A new kind of spatial instrument from Readymade Games."
+          content="Move 3D capsules to sculpt timbre, rhythm and light. Free on iOS and Android — a new kind of spatial instrument from Readymade Games."
         />
         <meta property="og:image" content={OG_IMAGE} />
 
@@ -85,7 +100,7 @@ export default function SynthaesthesiaLanding() {
         />
         <meta
           name="twitter:description"
-          content="Move 3D capsules to sculpt timbre, rhythm and light. iOS + Android."
+          content="Move 3D capsules to sculpt timbre, rhythm and light. Free on iOS and Android."
         />
         <meta name="twitter:image" content={OG_IMAGE} />
       </Helmet>
@@ -96,7 +111,7 @@ export default function SynthaesthesiaLanding() {
           <section className="grid md:grid-cols-2 gap-10 items-center mb-20">
             <div>
               <Badge className="bg-purple-500/20 text-purple-200 border border-purple-400/30 mb-5">
-                Out now on iOS · Android beta on itch.io
+                Out now on iOS &amp; Android — free
               </Badge>
               <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight mb-5">
                 Synesthesia Synth
@@ -112,16 +127,7 @@ export default function SynthaesthesiaLanding() {
 
               <div className="flex flex-wrap items-center gap-3">
                 <AppStoreBadge href={APP_STORE_URL} />
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 px-5 py-6 rounded-xl"
-                >
-                  <a href={ITCH_URL} target="_blank" rel="noopener noreferrer">
-                    <Download className="mr-2 h-4 w-4" />
-                    Android beta on itch.io
-                  </a>
-                </Button>
+                <GooglePlayBadge href={GOOGLE_PLAY_URL} />
               </div>
             </div>
 
@@ -154,24 +160,67 @@ export default function SynthaesthesiaLanding() {
             </div>
           </section>
 
+          {/* See it in action — two videos */}
+          <section id="videos" className="mb-20">
+            <h2 className="text-3xl font-bold text-white mb-3 text-center">
+              See it in action
+            </h2>
+            <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+              A quick tour of the controls and the instrument played live.
+            </p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {SYNTHAESTHESIA_DEMO_VIDEOS.map((video) => (
+                <div
+                  key={video.youtubeId}
+                  className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden backdrop-blur-sm"
+                >
+                  <div className="bg-black">
+                    <YouTubeEmbed
+                      videoId={video.youtubeId}
+                      title={`Synesthesia Synth — ${video.label}`}
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg font-semibold text-white mb-1">
+                      {video.label}
+                    </h3>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      {video.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
           {/* Screenshots */}
-          <section className="mb-20">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+          <section id="screenshots" className="mb-20">
+            <h2 className="text-3xl font-bold text-white mb-3 text-center">
               Screenshots
             </h2>
+            <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
+              Tap any image to view it full-size.
+            </p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {SCREENSHOTS.map((src, i) => (
-                <div
+              {SCREENSHOTS.map(({ src, caption }, i) => (
+                <a
                   key={src}
-                  className="aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-black/40"
+                  href={src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group aspect-[9/16] rounded-xl overflow-hidden border border-white/10 bg-black/40 block relative"
                 >
                   <img
                     src={src}
-                    alt={`Synesthesia Synth screenshot ${i + 1}`}
-                    className="w-full h-full object-cover"
+                    alt={`Synesthesia Synth — ${caption}`}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
                   />
-                </div>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <p className="text-xs text-white leading-snug">{caption}</p>
+                  </div>
+                  <span className="sr-only">Screenshot {i + 1}</span>
+                </a>
               ))}
             </div>
           </section>
@@ -183,7 +232,7 @@ export default function SynthaesthesiaLanding() {
             </h2>
             <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
               Position and motion map directly to sound. Nothing is hidden — the
-              instrument's behaviour is on screen at all times.
+              instrument&apos;s behaviour is on screen at all times.
             </p>
             <div className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden backdrop-blur-sm">
               <table className="w-full text-left">
@@ -211,6 +260,118 @@ export default function SynthaesthesiaLanding() {
             </div>
           </section>
 
+          {/* User manual */}
+          <section id="manual" className="mb-20">
+            <div className="rounded-2xl bg-white/5 border border-white/10 p-8 backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-purple-600/30 to-pink-600/30 border border-purple-400/20 shrink-0">
+                    <BookOpen className="h-6 w-6 text-purple-200" />
+                  </div>
+                  <div>
+                    <h2 className="text-3xl font-bold text-white mb-2">
+                      User manual
+                    </h2>
+                    <p className="text-gray-300 leading-relaxed max-w-2xl">
+                      Everything you need to play Synesthesia Synth — gestures,
+                      the three voices, the four parameter categories,
+                      spatial sound, the bottom sheet, the gyroscope camera,
+                      and the preset library.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-2 shrink-0">
+                  <Button
+                    asChild
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white"
+                  >
+                    <Link href={MANUAL_URL}>
+                      <BookOpen className="mr-2 h-4 w-4" />
+                      Read the full manual
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-white/30 text-white hover:bg-white/10"
+                  >
+                    <Link href={MANUAL_PRESETS_URL}>Jump to presets</Link>
+                  </Button>
+                  <a
+                    href={MANUAL_GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-purple-300/80 hover:text-white inline-flex items-center gap-1 self-end"
+                  >
+                    View source on GitHub
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </div>
+              </div>
+
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-purple-200 mb-3">
+                Sections
+              </h3>
+              <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                {SYNTHAESTHESIA_MANUAL_SECTIONS.map((section) => (
+                  <li key={section.hash}>
+                    <Link
+                      href={`${MANUAL_URL}${section.hash}`}
+                      className="text-gray-300 hover:text-white transition-colors inline-flex items-center gap-2 group"
+                    >
+                      <span className="text-purple-300 group-hover:text-pink-300">
+                        →
+                      </span>
+                      {section.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+
+          {/* Press kit / presser */}
+          <section id="press" className="mb-20">
+            <div className="rounded-2xl bg-gradient-to-br from-purple-600/20 to-pink-600/20 border border-purple-400/30 p-8">
+              <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-black/30 border border-purple-400/20 shrink-0">
+                    <FileText className="h-6 w-6 text-purple-200" />
+                  </div>
+                  <div>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                      For press &amp; creators
+                    </h2>
+                    <p className="text-gray-200 leading-relaxed max-w-2xl">
+                      One-pager, fact sheet, hero video, full-resolution
+                      screenshots, copy-paste blurbs, and reviewer build access.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-3 shrink-0">
+                  <Button
+                    asChild
+                    className="bg-white text-purple-900 hover:bg-purple-100"
+                  >
+                    <Link href="/synthaesthesia/press">
+                      <FileText className="mr-2 h-4 w-4" />
+                      Press kit
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-white/40 text-white hover:bg-white/10"
+                  >
+                    <Link href="/synthaesthesia/press/one-pager">
+                      One-pager
+                    </Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/* Pull quote */}
           <section className="mb-20">
             <blockquote className="max-w-3xl mx-auto text-center">
@@ -227,10 +388,12 @@ export default function SynthaesthesiaLanding() {
                 Get Synesthesia Synth
               </h2>
               <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                Free on the App Store. Android beta available on itch.io.
+                Free on the App Store and Google Play. Android beta builds also
+                live on itch.io.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <AppStoreBadge href={APP_STORE_URL} />
+                <GooglePlayBadge href={GOOGLE_PLAY_URL} />
                 <Button
                   asChild
                   variant="outline"
@@ -238,7 +401,7 @@ export default function SynthaesthesiaLanding() {
                 >
                   <a href={ITCH_URL} target="_blank" rel="noopener noreferrer">
                     <Download className="mr-2 h-4 w-4" />
-                    Android beta
+                    itch.io (beta)
                   </a>
                 </Button>
               </div>
@@ -262,6 +425,13 @@ export default function SynthaesthesiaLanding() {
             >
               <FileText className="h-4 w-4" />
               Press kit
+            </Link>
+            <Link
+              href={MANUAL_URL}
+              className="inline-flex items-center gap-2 text-purple-300 hover:text-white transition-colors"
+            >
+              <BookOpen className="h-4 w-4" />
+              Manual
             </Link>
             <div className="flex items-center gap-4">
               <a

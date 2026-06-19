@@ -4,8 +4,12 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import AppStoreBadge from "@/components/AppStoreBadge";
+import GooglePlayBadge from "@/components/GooglePlayBadge";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
-import { SYNTHAESTHESIA_HERO_YOUTUBE_ID } from "@/lib/synthaesthesiaMedia";
+import {
+  SYNTHAESTHESIA_HERO_YOUTUBE_ID,
+  SYNTHAESTHESIA_LINKS,
+} from "@/lib/synthaesthesiaMedia";
 import {
   ArrowLeft,
   Download,
@@ -14,11 +18,17 @@ import {
   Check,
   ExternalLink,
   FileText,
+  BookOpen,
 } from "lucide-react";
 
-const APP_STORE_URL = "https://apps.apple.com/app/id6763379132";
-const ITCH_URL = "https://readymadegames.itch.io/synthaesthesia";
-const CONTACT_EMAIL = "info@readymade.games";
+const {
+  appStore: APP_STORE_URL,
+  googlePlay: GOOGLE_PLAY_URL,
+  itch: ITCH_URL,
+  manual: MANUAL_URL,
+  manualGithub: MANUAL_GITHUB_URL,
+  contactEmail: CONTACT_EMAIL,
+} = SYNTHAESTHESIA_LINKS;
 const PRESS_KIT_ZIP = "/synthaesthesia/press-kit.zip";
 const ONE_PAGER_PAGE = "/synthaesthesia/press/one-pager";
 const ONE_PAGER_MD = "/synthaesthesia/PRESS_ONE_PAGER.md";
@@ -35,11 +45,37 @@ const OG_IMAGE = "https://readymade.games/synthaesthesia/og-image.jpg";
 
 const factsheet: { label: string; value: string | JSX.Element }[] = [
   { label: "Developer", value: "Readymade Games" },
-  { label: "Platforms", value: "iOS (App Store) · Android (itch.io beta)" },
+  {
+    label: "Platforms",
+    value: "iOS (App Store) · Android (Google Play) · Android beta on itch.io",
+  },
   { label: "Price", value: "Free" },
   { label: "Genre", value: "Audio-visual instrument / experimental music app" },
   { label: "Release", value: "2026" },
   { label: "Languages", value: "English" },
+  {
+    label: "User manual",
+    value: (
+      <span className="inline-flex items-center gap-3 flex-wrap">
+        <Link
+          href={MANUAL_URL}
+          className="text-purple-300 hover:text-white inline-flex items-center gap-1"
+        >
+          Read on the site
+        </Link>
+        <span className="text-gray-500">·</span>
+        <a
+          href={MANUAL_GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-purple-300 hover:text-white inline-flex items-center gap-1"
+        >
+          GitHub source
+          <ExternalLink className="h-3 w-3" />
+        </a>
+      </span>
+    ),
+  },
   {
     label: "Press contact",
     value: (
@@ -61,10 +97,10 @@ const features = [
 ];
 
 const shareOneLine =
-  "Synesthesia Synth by Readymade Games — a spatial audio-visual instrument where every gesture is both sound and image. Free on the App Store. https://readymade.games/synthaesthesia";
+  "Synesthesia Synth by Readymade Games — a spatial audio-visual instrument where every gesture is both sound and image. Free on the App Store and Google Play. https://readymade.games/synthaesthesia";
 
 const shareParagraph =
-  "Synesthesia Synth is a new kind of spatial instrument from Readymade Games. Three 3D capsules float in space — moving and rotating them shapes timbre, sliders sculpt rhythmic contraction, and delay effects spawn synchronised particle bursts. Not quite a game, not quite a synth. Free on the App Store, with an Android beta on itch.io. https://readymade.games/synthaesthesia";
+  "Synesthesia Synth is a new kind of spatial instrument from Readymade Games. Three 3D capsules float in space — moving and rotating them shapes timbre, sliders sculpt rhythmic contraction, and delay effects spawn synchronised particle bursts. Not quite a game, not quite a synth. Free on the App Store and Google Play, with Android beta builds on itch.io. https://readymade.games/synthaesthesia";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -190,6 +226,16 @@ export default function SynthaesthesiaPress() {
                 </Button>
                 <Button
                   asChild
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10"
+                >
+                  <Link href={MANUAL_URL}>
+                    <BookOpen className="mr-2 h-4 w-4" />
+                    User manual
+                  </Link>
+                </Button>
+                <Button
+                  asChild
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:opacity-90 text-white"
                 >
                   <a href={PRESS_KIT_ZIP} download>
@@ -198,6 +244,7 @@ export default function SynthaesthesiaPress() {
                   </a>
                 </Button>
                 <AppStoreBadge href={APP_STORE_URL} />
+                <GooglePlayBadge href={GOOGLE_PLAY_URL} />
               </div>
             </div>
           </div>
@@ -335,9 +382,10 @@ export default function SynthaesthesiaPress() {
             <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm space-y-4">
               <p className="text-gray-300 leading-relaxed">
                 Press, reviewers and creators are welcome to request a build.
-                The iOS release is free on the App Store, and Android builds
-                are available on itch.io. For TestFlight invites or direct
-                builds, please reach out.
+                Synesthesia Synth is free on the App Store and Google Play, and
+                Android beta builds are also available on itch.io. For
+                TestFlight invites, internal-testing access or direct builds,
+                please reach out.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button
@@ -358,7 +406,7 @@ export default function SynthaesthesiaPress() {
                 >
                   <a href={ITCH_URL} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="mr-2 h-4 w-4" />
-                    Android build (itch.io)
+                    Android beta (itch.io)
                   </a>
                 </Button>
               </div>

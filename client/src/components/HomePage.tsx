@@ -2,17 +2,20 @@ import { Link } from "wouter";
 import VideoBackground from "./VideoBackground";
 import { Button } from "./ui/button";
 import AppStoreBadge from "./AppStoreBadge";
+import GooglePlayBadge from "./GooglePlayBadge";
 import { useNavigation } from "../lib/stores/useNavigation";
 import { ArrowRight, Music } from "lucide-react";
+import { SYNTHAESTHESIA_LINKS } from "../lib/synthaesthesiaMedia";
 
-const APP_STORE_URL = "https://apps.apple.com/app/id6763379132";
+const { appStore: APP_STORE_URL, googlePlay: GOOGLE_PLAY_URL } =
+  SYNTHAESTHESIA_LINKS;
 
 export default function HomePage() {
   const { setCurrentSection } = useNavigation();
 
   return (
     <div className="relative h-screen overflow-hidden">
-      <VideoBackground videoPath="/video.mp4" />
+      <VideoBackground videoPath="/video.mp4" startTime={6} />
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
         <div className="max-w-4xl mx-auto">
@@ -31,10 +34,11 @@ export default function HomePage() {
           {/* Featured app: Synesthesia Synth */}
           <div className="flex flex-col items-center gap-4 mb-8">
             <p className="text-sm uppercase tracking-widest text-purple-200/80">
-              Out now — Synesthesia Synth
+              Out now on iOS &amp; Android — Synesthesia Synth
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <AppStoreBadge href={APP_STORE_URL} />
+              <GooglePlayBadge href={GOOGLE_PLAY_URL} />
               <Button
                 asChild
                 variant="outline"

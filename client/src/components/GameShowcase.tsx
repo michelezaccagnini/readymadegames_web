@@ -1,6 +1,10 @@
-import { Smartphone, ExternalLink, Download } from "lucide-react";
+import { Link } from "wouter";
+import { Smartphone, Download, ArrowRight } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
+import AppStoreBadge from "./AppStoreBadge";
+import GooglePlayBadge from "./GooglePlayBadge";
+import { SYNTHAESTHESIA_LINKS } from "../lib/synthaesthesiaMedia";
 
 const games = [
   {
@@ -9,13 +13,15 @@ const games = [
     tagline: "A Spatial Audio-Visual Instrument",
     description:
       "Three 3D capsules float in space — move them, rotate them, and watch them contract to generate sound. Every position and rotation shapes the timbre; contraction patterns are sculpted with sliders; delay effects spawn synchronized particles. Swap between sound patches to transform the entire sonic character. Not quite a game, not quite a synth — a new kind of spatial instrument.",
-    platform: "Android",
+    platform: "iOS · Android",
     price: "Free",
-    itchUrl: "https://readymadegames.itch.io/synthaesthesia",
-    googlePlayUrl: null,
+    appStoreUrl: SYNTHAESTHESIA_LINKS.appStore,
+    googlePlayUrl: SYNTHAESTHESIA_LINKS.googlePlay,
+    itchUrl: SYNTHAESTHESIA_LINKS.itch,
+    pageUrl: "/synthaesthesia",
     videos: [
       { youtubeId: "IsoLXUgIwvI", label: "Basic Commands Tutorial" },
-      { youtubeId: "mD54jssnzZk", label: "Another Example" },
+      { youtubeId: "mD54jssnzZk", label: "Performance Example" },
     ],
     gradient: "from-purple-600 to-pink-600",
     badgeColor: "bg-green-500/20 text-green-300 border-green-500/30",
@@ -101,11 +107,30 @@ export default function GameShowcase() {
                   {game.description}
                 </p>
 
+                <div className="flex flex-wrap items-center gap-3 mb-4">
+                  {game.appStoreUrl && <AppStoreBadge href={game.appStoreUrl} />}
+                  {game.googlePlayUrl && (
+                    <GooglePlayBadge href={game.googlePlayUrl} />
+                  )}
+                </div>
+
                 <div className="flex flex-wrap gap-3">
-                  {game.itchUrl && (
+                  {game.pageUrl && (
                     <Button
                       asChild
                       className={`bg-gradient-to-r ${game.gradient} hover:opacity-90 text-white px-6 py-2`}
+                    >
+                      <Link href={game.pageUrl}>
+                        Visit the app page
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  )}
+                  {game.itchUrl && (
+                    <Button
+                      asChild
+                      variant="outline"
+                      className="border-white/30 text-white hover:bg-white/10 px-6 py-2"
                     >
                       <a
                         href={game.itchUrl}
@@ -113,23 +138,7 @@ export default function GameShowcase() {
                         rel="noopener noreferrer"
                       >
                         <Download className="mr-2 h-4 w-4" />
-                        Download on itch.io
-                      </a>
-                    </Button>
-                  )}
-                  {game.googlePlayUrl && (
-                    <Button
-                      asChild
-                      variant="outline"
-                      className="border-white/30 text-white hover:bg-white/10 px-6 py-2"
-                    >
-                      <a
-                        href={game.googlePlayUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        Get on Google Play
+                        Android beta (itch.io)
                       </a>
                     </Button>
                   )}

@@ -1,12 +1,12 @@
 # Synesthesia Synth — Press One-Pager
 
-**A 3D audiovisual instrument for iOS where every gesture is both sound and image.**
+**A 3D audiovisual instrument for iOS and Android where every gesture is both sound and image.**
 
 Move three glowing capsules through space and the room itself becomes the mixer:
 position is pan, height is pitch, depth is reverb.
 
-- **Free** on the App Store — no IAP, no subscriptions
-- **iOS** (Android in beta)
+- **Free** on the App Store and Google Play — no IAP, no subscriptions
+- **iOS and Android** (Android beta builds also available on itch.io)
 - **Genre:** Music app · Synthesizer · Audiovisual instrument
 
 ---
@@ -28,8 +28,10 @@ Synesthesia Synth is a touch-first instrument with three independent voices, eac
 
 ## Press kit assets
 
-- **App Store:** https://apps.apple.com/app/id6763379132
-- **60–90s hero demo (YouTube):** https://youtu.be/nzAPqJxnfdM
+- **App Store:** https://apps.apple.com/us/app/synesthesia-synth/id6763379132
+- **Google Play:** https://play.google.com/store/apps/details?id=com.unirack.synthaesthesia
+- **60–90s hero demo (YouTube):** https://youtu.be/mOxA9Yt_TD0
+- **User manual:** https://readymade.games/synthaesthesia/manual
 - **Screenshots & press page:** https://readymade.games/synthaesthesia/press
 - **Canonical source (Markdown):** https://github.com/michelezaccagnini/Synthaesthesia/blob/ios-build/press/PRESS_ONE_PAGER.md
 
@@ -50,11 +52,11 @@ Press contact: info@readymade.games
 |---|---|
 | Title | Synesthesia Synth |
 | Developer | Michele Zaccagnini / Readymade Games |
-| Platforms | iOS (App Store) · Android (itch.io beta) |
+| Platforms | iOS (App Store) · Android (Google Play) · Android beta (itch.io) |
 | Price | Free |
 | Engine | Unity + libpd |
 | Audio | Real-time spatial synthesis, three voices, no samples |
-| Min iOS | iOS 14+ |
+| Min iOS / Android | iOS 16+ · Android (Play Store listing for requirements) |
 
 ---
 

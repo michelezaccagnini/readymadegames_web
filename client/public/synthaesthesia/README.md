@@ -6,7 +6,8 @@ paths.
 
 | File                | Required size / format               | Used on                             |
 | ------------------- | ------------------------------------ | ----------------------------------- |
-| Hero video          | YouTube embed (`nzAPqJxnfdM`) — configured in `client/src/lib/synthaesthesiaMedia.ts` | Landing hero, press hero            |
+| Hero video          | YouTube embed (`mOxA9Yt_TD0`) — configured in `client/src/lib/synthaesthesiaMedia.ts` | Landing hero, press hero            |
+| Demo videos         | YouTube embeds (`IsoLXUgIwvI`, `mD54jssnzZk`) — configured in `synthaesthesiaMedia.ts` | Landing "See it in action" section |
 | `fingerSS.jpeg`     | Gestures / controls                  | Screenshot 1                        |
 | `menuSS.jpeg`       | Main menu / scenes                   | Screenshot 2                        |
 | `patternSS.jpeg`    | Pattern generator                    | Screenshot 3                        |
