@@ -1,32 +1,11 @@
-/** Synesthesia Synth hero trailer: https://youtu.be/mOxA9Yt_TD0 */
-export const SYNTHAESTHESIA_HERO_YOUTUBE_ID = "mOxA9Yt_TD0";
-
-/** In-depth demo / tutorial videos featured on the landing page. */
-export const SYNTHAESTHESIA_DEMO_VIDEOS: ReadonlyArray<{
-  youtubeId: string;
-  label: string;
-  description: string;
-}> = [
-  {
-    youtubeId: "IsoLXUgIwvI",
-    label: "Basic commands tutorial",
-    description:
-      "Walk-through of the touch gestures: move, rotate, mute, select, and the bottom-sheet controls.",
-  },
-  {
-    youtubeId: "mD54jssnzZk",
-    label: "Performance example",
-    description:
-      "Synesthesia Synth in motion — three voices played live, sculpting timbre, rhythm and light at once.",
-  },
-];
+/** Synesthesia Synth hero trailer: https://youtu.be/yU7Yab_JvtY */
+export const SYNTHAESTHESIA_HERO_YOUTUBE_ID = "yU7Yab_JvtY";
 
 /** Store and external links. Apple + Google Play are both live. */
 export const SYNTHAESTHESIA_LINKS = {
   appStore: "https://apps.apple.com/us/app/synesthesia-synth/id6763379132",
   googlePlay:
     "https://play.google.com/store/apps/details?id=com.unirack.synthaesthesia",
-  itch: "https://readymadegames.itch.io/synthaesthesia",
   /** In-site manual page (full markdown rendered with anchors, print-friendly). */
   manual: "/synthaesthesia/manual",
   /** Direct deep-link to the Presets section of the in-site manual. */

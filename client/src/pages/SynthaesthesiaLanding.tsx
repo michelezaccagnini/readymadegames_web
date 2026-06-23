@@ -7,17 +7,15 @@ import GooglePlayBadge from "@/components/GooglePlayBadge";
 import { YouTubeEmbed } from "@/components/YouTubeEmbed";
 import {
   SYNTHAESTHESIA_HERO_YOUTUBE_ID,
-  SYNTHAESTHESIA_DEMO_VIDEOS,
   SYNTHAESTHESIA_LINKS,
   SYNTHAESTHESIA_MANUAL_SECTIONS,
 } from "@/lib/synthaesthesiaMedia";
 import {
-  Download,
   Mail,
   FileText,
   Move3d,
-  Sliders,
-  Sparkles,
+  Activity,
+  Hand,
   Youtube,
   Github,
   BookOpen,
@@ -27,7 +25,6 @@ import {
 const {
   appStore: APP_STORE_URL,
   googlePlay: GOOGLE_PLAY_URL,
-  itch: ITCH_URL,
   manual: MANUAL_URL,
   manualPresets: MANUAL_PRESETS_URL,
   manualGithub: MANUAL_GITHUB_URL,
@@ -35,10 +32,10 @@ const {
 } = SYNTHAESTHESIA_LINKS;
 
 const SCREENSHOTS = [
-  { src: "/synthaesthesia/fingerSS.jpeg", caption: "Touch gestures shape every voice." },
-  { src: "/synthaesthesia/menuSS.jpeg", caption: "Patch menu — swap entire sonic worlds." },
-  { src: "/synthaesthesia/patternSS.jpeg", caption: "Pattern generator: XY pad + waveform slider." },
-  { src: "/synthaesthesia/roomSS.jpeg", caption: "The room is the mixer — position is pan, height is pitch, depth is reverb." },
+  { src: "/synthaesthesia/voicesSS.png", caption: "Three voices float in space — position is pan, height is pitch, depth is reverb." },
+  { src: "/synthaesthesia/selectSS.png", caption: "Tap a capsule to select it — the flashing ring marks the active voice." },
+  { src: "/synthaesthesia/scenesSS.png", caption: "Choose a scene — each preset is a complete world of three voices." },
+  { src: "/synthaesthesia/gesturesSS.png", caption: "Every gesture in one place: drag, pinch, tap and tilt." },
 ];
 const OG_IMAGE = "https://readymade.games/synthaesthesia/og-image.jpg";
 const PAGE_URL = "https://readymade.games/synthaesthesia";
@@ -46,28 +43,28 @@ const PAGE_URL = "https://readymade.games/synthaesthesia";
 const features = [
   {
     icon: Move3d,
-    title: "Spatial gestures shape sound",
-    body: "Three 3D capsules float in space — move and rotate them to sculpt timbre in real time.",
+    title: "Position is the mix",
+    body: "X is pan, height is pitch, depth is distance and reverb. Spread three voices through space and the room becomes the mixer.",
   },
   {
-    icon: Sliders,
-    title: "Sliders sculpt contraction",
-    body: "Shape the rhythmic contraction patterns that drive each capsule's voice.",
+    icon: Activity,
+    title: "The shape is the rhythm",
+    body: "Two oscillators run inside each voice — every time their paths cross a pulse fires. The capsule's animation is the sound.",
   },
   {
-    icon: Sparkles,
-    title: "Delay spawns particles",
-    body: "Echoes are visualised as synchronised particle bursts — every sound becomes light.",
+    icon: Hand,
+    title: "Four gesture categories",
+    body: "Drag and pinch drive Position, Pattern, Rotation and Texture. Every parameter is touch, directly on the 3D space.",
   },
 ];
 
 const mappings = [
-  { input: "Capsule position (X / Y / Z)", output: "Pan, pitch / brightness, distance + reverb" },
-  { input: "Capsule rotation", output: "Spectral character / harmonics" },
-  { input: "Contraction rate", output: "Rhythmic pulse of each voice" },
-  { input: "Sliders", output: "Envelope and contraction shape" },
-  { input: "Delay taps", output: "Synchronised particle bursts" },
-  { input: "Patch swap", output: "Entire sonic character" },
+  { input: "Capsule position (X / Y / Z)", output: "Pan, pitch register, distance + reverb" },
+  { input: "Pattern — drag + pinch", output: "Two oscillator speeds and waveform — the rhythm engine" },
+  { input: "Rotation — drag + pinch", output: "Filter cutoff, resonance and distortion" },
+  { input: "Texture — drag + pinch", output: "Pitch / colour, delay feedback and delay time" },
+  { input: "Three-finger tap", output: "Cycle category: Position → Pattern → Rotation → Texture" },
+  { input: "Double-tap (off a capsule)", output: "Mute / unmute the selected voice" },
 ];
 
 export default function SynthaesthesiaLanding() {
@@ -155,39 +152,6 @@ export default function SynthaesthesiaLanding() {
                     {title}
                   </h3>
                   <p className="text-gray-300 leading-relaxed">{body}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* See it in action — two videos */}
-          <section id="videos" className="mb-20">
-            <h2 className="text-3xl font-bold text-white mb-3 text-center">
-              See it in action
-            </h2>
-            <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
-              A quick tour of the controls and the instrument played live.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              {SYNTHAESTHESIA_DEMO_VIDEOS.map((video) => (
-                <div
-                  key={video.youtubeId}
-                  className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden backdrop-blur-sm"
-                >
-                  <div className="bg-black">
-                    <YouTubeEmbed
-                      videoId={video.youtubeId}
-                      title={`Synesthesia Synth — ${video.label}`}
-                    />
-                  </div>
-                  <div className="p-5">
-                    <h3 className="text-lg font-semibold text-white mb-1">
-                      {video.label}
-                    </h3>
-                    <p className="text-sm text-gray-400 leading-relaxed">
-                      {video.description}
-                    </p>
-                  </div>
                 </div>
               ))}
             </div>
@@ -388,22 +352,11 @@ export default function SynthaesthesiaLanding() {
                 Get Synesthesia Synth
               </h2>
               <p className="text-gray-300 mb-8 max-w-xl mx-auto">
-                Free on the App Store and Google Play. Android beta builds also
-                live on itch.io.
+                Free on the App Store and Google Play — no IAP, no subscriptions.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-4">
                 <AppStoreBadge href={APP_STORE_URL} />
                 <GooglePlayBadge href={GOOGLE_PLAY_URL} />
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10 px-5 py-6 rounded-xl"
-                >
-                  <a href={ITCH_URL} target="_blank" rel="noopener noreferrer">
-                    <Download className="mr-2 h-4 w-4" />
-                    itch.io (beta)
-                  </a>
-                </Button>
               </div>
             </div>
           </section>

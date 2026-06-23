@@ -4,7 +4,10 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import AppStoreBadge from "./AppStoreBadge";
 import GooglePlayBadge from "./GooglePlayBadge";
-import { SYNTHAESTHESIA_LINKS } from "../lib/synthaesthesiaMedia";
+import {
+  SYNTHAESTHESIA_LINKS,
+  SYNTHAESTHESIA_HERO_YOUTUBE_ID,
+} from "../lib/synthaesthesiaMedia";
 
 const games = [
   {
@@ -12,16 +15,15 @@ const games = [
     title: "Synesthesia Synth",
     tagline: "A Spatial Audio-Visual Instrument",
     description:
-      "Three 3D capsules float in space — move them, rotate them, and watch them contract to generate sound. Every position and rotation shapes the timbre; contraction patterns are sculpted with sliders; delay effects spawn synchronized particles. Swap between sound patches to transform the entire sonic character. Not quite a game, not quite a synth — a new kind of spatial instrument.",
+      "Three living 3D capsules float in space — move them and the room becomes the mixer: position is pan, height is pitch, depth is distance and reverb. Two oscillators inside each voice fire a pulse every time their paths cross, so the capsule's animation is the rhythm. Drag and pinch drive four gesture categories — Position, Pattern, Rotation and Texture — directly on the 3D space. Not quite a game, not quite a synth — a new kind of spatial instrument.",
     platform: "iOS · Android",
     price: "Free",
     appStoreUrl: SYNTHAESTHESIA_LINKS.appStore,
     googlePlayUrl: SYNTHAESTHESIA_LINKS.googlePlay,
-    itchUrl: SYNTHAESTHESIA_LINKS.itch,
+    itchUrl: undefined as string | undefined,
     pageUrl: "/synthaesthesia",
     videos: [
-      { youtubeId: "IsoLXUgIwvI", label: "Basic Commands Tutorial" },
-      { youtubeId: "mD54jssnzZk", label: "Performance Example" },
+      { youtubeId: SYNTHAESTHESIA_HERO_YOUTUBE_ID, label: "Synesthesia Synth — trailer" },
     ],
     gradient: "from-purple-600 to-pink-600",
     badgeColor: "bg-green-500/20 text-green-300 border-green-500/30",
@@ -53,7 +55,13 @@ export default function GameShowcase() {
               className="rounded-2xl bg-white/5 border border-white/10 overflow-hidden backdrop-blur-sm"
             >
               {/* Videos */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              <div
+                className={`grid gap-0 divide-y md:divide-y-0 md:divide-x divide-white/10 ${
+                  game.videos.length > 1
+                    ? "grid-cols-1 md:grid-cols-2"
+                    : "grid-cols-1"
+                }`}
+              >
                 {game.videos.map((video) => (
                   <div key={video.youtubeId} className="flex flex-col">
                     <div className="relative w-full aspect-video bg-black">

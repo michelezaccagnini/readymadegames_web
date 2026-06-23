@@ -24,7 +24,6 @@ import {
 const {
   appStore: APP_STORE_URL,
   googlePlay: GOOGLE_PLAY_URL,
-  itch: ITCH_URL,
   manual: MANUAL_URL,
   manualGithub: MANUAL_GITHUB_URL,
   contactEmail: CONTACT_EMAIL,
@@ -35,10 +34,10 @@ const ONE_PAGER_MD = "/synthaesthesia/PRESS_ONE_PAGER.md";
 const GITHUB_ONE_PAGER_SOURCE =
   "https://github.com/michelezaccagnini/Synthaesthesia/blob/ios-build/press/PRESS_ONE_PAGER.md";
 const SCREENSHOTS = [
-  "/synthaesthesia/fingerSS.jpeg",
-  "/synthaesthesia/menuSS.jpeg",
-  "/synthaesthesia/patternSS.jpeg",
-  "/synthaesthesia/roomSS.jpeg",
+  "/synthaesthesia/voicesSS.png",
+  "/synthaesthesia/selectSS.png",
+  "/synthaesthesia/scenesSS.png",
+  "/synthaesthesia/gesturesSS.png",
 ];
 const PAGE_URL = "https://readymade.games/synthaesthesia/press";
 const OG_IMAGE = "https://readymade.games/synthaesthesia/og-image.jpg";
@@ -47,7 +46,7 @@ const factsheet: { label: string; value: string | JSX.Element }[] = [
   { label: "Developer", value: "Readymade Games" },
   {
     label: "Platforms",
-    value: "iOS (App Store) · Android (Google Play) · Android beta on itch.io",
+    value: "iOS (App Store) · Android (Google Play)",
   },
   { label: "Price", value: "Free" },
   { label: "Genre", value: "Audio-visual instrument / experimental music app" },
@@ -90,17 +89,18 @@ const factsheet: { label: string; value: string | JSX.Element }[] = [
 ];
 
 const features = [
-  "Three 3D capsules float in space — move and rotate them to sculpt timbre.",
-  "Sliders sculpt contraction patterns that drive each capsule's voice.",
-  "Delay effects spawn synchronised particles — every echo is also light.",
-  "Swap between sound patches to transform the entire sonic character.",
+  "Three independent voices, each a living 3D capsule you move and rotate by touch.",
+  "Position is the mix: X is pan, height is pitch, depth is distance and reverb.",
+  "Two oscillators per voice fire a pulse each time their paths cross — the capsule's animation is the rhythm.",
+  "Four gesture categories — Position, Pattern, Rotation and Texture — drive every parameter directly on the 3D space.",
+  "A library of preset scenes, each a complete world of three voices; save your own from the bottom sheet.",
 ];
 
 const shareOneLine =
   "Synesthesia Synth by Readymade Games — a spatial audio-visual instrument where every gesture is both sound and image. Free on the App Store and Google Play. https://readymade.games/synthaesthesia";
 
 const shareParagraph =
-  "Synesthesia Synth is a new kind of spatial instrument from Readymade Games. Three 3D capsules float in space — moving and rotating them shapes timbre, sliders sculpt rhythmic contraction, and delay effects spawn synchronised particle bursts. Not quite a game, not quite a synth. Free on the App Store and Google Play, with Android beta builds on itch.io. https://readymade.games/synthaesthesia";
+  "Synesthesia Synth is a new kind of spatial instrument from Readymade Games. Three living 3D capsules float in space — move them and the room becomes the mixer: position is pan, height is pitch, depth is distance and reverb. Two oscillators inside each voice fire a pulse every time their paths cross, so the capsule's animation is the rhythm. Drag and pinch drive four gesture categories — Position, Pattern, Rotation and Texture. Not quite a game, not quite a synth. Free on the App Store and Google Play. https://readymade.games/synthaesthesia";
 
 function CopyButton({ text }: { text: string }) {
   const [copied, setCopied] = useState(false);
@@ -255,12 +255,14 @@ export default function SynthaesthesiaPress() {
               Description
             </h2>
             <p className="text-gray-300 leading-relaxed mb-4">
-              Synesthesia Synth is a new kind of spatial instrument. Three 3D
-              capsules float in space — move them, rotate them, and watch them
-              contract to generate sound. Every position and rotation shapes
-              the timbre; contraction patterns are sculpted with sliders;
-              delay effects spawn synchronised particles. Swap between sound
-              patches to transform the entire sonic character.
+              Synesthesia Synth is a new kind of spatial instrument with three
+              independent voices, each a living 3D capsule suspended in space.
+              Move a capsule and the room becomes the mixer — position is pan,
+              height is pitch, depth is distance and reverb. Two oscillators run
+              inside every voice, firing a pulse each time their paths cross, so
+              the capsule's animation is the rhythm. Drag and pinch drive four
+              gesture categories — Position, Pattern, Rotation and Texture —
+              directly on the 3D space, with no sliders or knobs to operate.
             </p>
             <p className="text-gray-300 leading-relaxed">
               Not quite a game, not quite a synth — Synesthesia Synth is built on
@@ -382,8 +384,7 @@ export default function SynthaesthesiaPress() {
             <div className="rounded-2xl bg-white/5 border border-white/10 p-6 backdrop-blur-sm space-y-4">
               <p className="text-gray-300 leading-relaxed">
                 Press, reviewers and creators are welcome to request a build.
-                Synesthesia Synth is free on the App Store and Google Play, and
-                Android beta builds are also available on itch.io. For
+                Synesthesia Synth is free on the App Store and Google Play. For
                 TestFlight invites, internal-testing access or direct builds,
                 please reach out.
               </p>
@@ -397,16 +398,6 @@ export default function SynthaesthesiaPress() {
                   >
                     <Mail className="mr-2 h-4 w-4" />
                     Request a code
-                  </a>
-                </Button>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="border-white/30 text-white hover:bg-white/10"
-                >
-                  <a href={ITCH_URL} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="mr-2 h-4 w-4" />
-                    Android beta (itch.io)
                   </a>
                 </Button>
               </div>
